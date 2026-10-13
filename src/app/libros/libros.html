@@ -1,0 +1,251 @@
+<div class="libros-page">
+
+    <header class="topbar">
+
+        <div class="brand">
+            <div class="brand-icon">📚</div>
+            <span>Sistema de Gestión de Libros</span>
+        </div>
+
+        <nav class="top-menu">
+            <a href="/dashboard">Dashboard</a>
+            <a class="active" href="/libros">Libros</a>
+            <a href="/categorias">Categorías</a>
+            <a href="/autores">Autores</a>
+            <a href="/editoriales">Editoriales</a>
+            <a href="/prestamos">Préstamos</a>
+        </nav>
+
+        <div class="user-menu">
+            <span>👤</span>
+            <span>Administrador</span>
+            <span>⌄</span>
+        </div>
+
+    </header>
+
+    <main class="page-content">
+
+        <section class="page-header">
+            <div>
+                <h1>Gestión de Libros</h1>
+                <p>Registra, consulta, edita o elimina los libros del sistema.</p>
+            </div>
+
+            <a href="/libros/nuevo" class="new-button">
+                + Nuevo libro
+            </a>
+        </section>
+
+        <section class="filters">
+
+            <div class="search-box">
+                <span>🔍</span>
+                <input type="text" placeholder="Buscar por título, autor o ISBN..." />
+            </div>
+
+            <div class="filter-group">
+                <label>Categoría</label>
+                <select>
+                    <option>Todas</option>
+                    <option>Novela</option>
+                    <option>Infantil</option>
+                    <option>Clásicos</option>
+                    <option>Fantasía</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Estado</label>
+                <select>
+                    <option>Todos</option>
+                    <option>Disponible</option>
+                    <option>No disponible</option>
+                </select>
+            </div>
+
+            <button class="search-button">Buscar</button>
+            <button class="clear-button">Limpiar</button>
+
+        </section>
+
+        <section class="table-card">
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Portada</th>
+                            <th>Título</th>
+                            <th>Autor</th>
+                            <th>Categoría</th>
+                            <th>ISBN</th>
+                            <th>Año</th>
+                            <th>Disponibles</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>1</td>
+
+                            <td>
+                                <div class="book-cover">📖</div>
+                            </td>
+
+                            <td>Cien años de soledad</td>
+                            <td>Gabriel García Márquez</td>
+                            <td>Novela</td>
+                            <td>1097784371</td>
+                            <td>1967</td>
+                            <td>50</td>
+
+                            <td>
+                                <span class="status available">Disponible</span>
+                            </td>
+
+                            <td>
+                                <div class="actions">
+
+                                    <button title="Editar">✏️</button>
+                                    <button title="Eliminar">🗑️</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>2</td>
+
+                            <td>
+                                <div class="book-cover">📖</div>
+                            </td>
+
+                            <td>El principito</td>
+                            <td>Antoine de Saint-Exupéry</td>
+                            <td>Infantil</td>
+                            <td>9788420680321</td>
+                            <td>1943</td>
+                            <td>5</td>
+
+                            <td>
+                                <span class="status available">Disponible</span>
+                            </td>
+
+                            <td>
+                                <div class="actions">
+                                    <button>✏️</button>
+                                    <button>🗑️</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>3</td>
+
+                            <td>
+                                <div class="book-cover">📖</div>
+                            </td>
+
+                            <td>Don Quijote de la Mancha</td>
+                            <td>Miguel de Cervantes</td>
+                            <td>Clásicos</td>
+                            <td>9788491050282</td>
+                            <td>1605</td>
+                            <td>4</td>
+
+                            <td>
+                                <span class="status available">Disponible</span>
+                            </td>
+
+                            <td>
+                                <div class="actions">
+                                    <button>✏️</button>
+                                    <button>🗑️</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>4</td>
+
+                            <td>
+                                <div class="book-cover">📖</div>
+                            </td>
+
+                            <td>Harry Potter y la piedra filosofal</td>
+                            <td>J. K. Rowling</td>
+                            <td>Fantasía</td>
+                            <td>9788478884452</td>
+                            <td>1997</td>
+                            <td>6</td>
+
+                            <td>
+                                <span class="status available">Disponible</span>
+                            </td>
+
+                            <td>
+                                <div class="actions">
+                                    <button>✏️</button>
+                                    <button>🗑️</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>5</td>
+
+                            <td>
+                                <div class="book-cover">📖</div>
+                            </td>
+
+                            <td>La Odisea</td>
+                            <td>Homero</td>
+                            <td>Clásicos</td>
+                            <td>9788420637481</td>
+                            <td>-</td>
+                            <td>0</td>
+
+                            <td>
+                                <span class="status unavailable">No disponible</span>
+                            </td>
+
+                            <td>
+                                <div class="actions">
+                                    <button>✏️</button>
+                                    <button>🗑️</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div class="table-footer">
+
+                <span>Mostrando 1 a 5 de 20 libros</span>
+
+                <div class="pagination">
+                    <button>‹‹</button>
+                    <button class="current">1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button>4</button>
+                    <button>››</button>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>

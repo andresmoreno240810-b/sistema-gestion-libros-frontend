@@ -1,0 +1,230 @@
+<div class="autores-page">
+
+    <!-- Barra superior -->
+    <header class="topbar">
+
+        <div class="brand">
+            <div class="brand-icon">📚</div>
+            <span>Sistema de Gestión de Libros</span>
+        </div>
+
+        <nav class="top-menu">
+            <a href="/dashboard">Dashboard</a>
+            <a href="/libros">Libros</a>
+            <a href="/categorias">Categorías</a>
+            <a class="active" href="/autores">Autores</a>
+            <a href="/editoriales">Editoriales</a>
+            <a href="/prestamos">Préstamos</a>
+        </nav>
+
+        <div class="user-menu">
+            <span>👤</span>
+            <span>Administrador</span>
+            <span>⌄</span>
+        </div>
+
+    </header>
+
+    <!-- Contenido -->
+    <main class="page-content">
+
+        <section class="page-header">
+
+            <div>
+                <h1>Gestión de Autores</h1>
+
+                <p>
+                    Registra, consulta, edita o elimina los autores del sistema.
+                </p>
+            </div>
+
+            <a href="#" class="new-button">
+                + Nuevo autor
+            </a>
+
+        </section>
+
+        <!-- Filtros -->
+        <section class="filters">
+
+            <div class="search-box">
+                <span>🔍</span>
+
+                <input type="text" placeholder="Buscar por nombre, apellido o nacionalidad..." />
+            </div>
+
+            <div class="filter-group">
+
+                <label>Estado</label>
+
+                <select>
+                    <option>Todos</option>
+                    <option>Activo</option>
+                    <option>Inactivo</option>
+                </select>
+
+            </div>
+
+            <button class="search-button">
+                Buscar
+            </button>
+
+            <button class="clear-button">
+                Limpiar
+            </button>
+
+        </section>
+
+        <!-- Tabla -->
+        <section class="table-card">
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Nacionalidad</th>
+                            <th>Fecha de nacimiento</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>1</td>
+                            <td>Gabriel García</td>
+                            <td>Márquez</td>
+                            <td>Colombiana</td>
+                            <td>06/03/1927</td>
+
+                            <td>
+                                <span class="status active-status">
+                                    Activo
+                                </span>
+                            </td>
+
+                            <td>
+                                <div class="actions">
+                                    <button title="Editar">✏️</button>
+                                    <button title="Eliminar">🗑️</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>2</td>
+                            <td>J. K.</td>
+                            <td>Rowling</td>
+                            <td>Británica</td>
+                            <td>31/07/1965</td>
+
+                            <td>
+                                <span class="status active-status">
+                                    Activo
+                                </span>
+                            </td>
+
+                            <td>
+                                <div class="actions">
+                                    <button title="Editar">✏️</button>
+                                    <button title="Eliminar">🗑️</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>3</td>
+                            <td>Miguel</td>
+                            <td>de Cervantes</td>
+                            <td>Española</td>
+                            <td>29/09/1547</td>
+
+                            <td>
+                                <span class="status active-status">
+                                    Activo
+                                </span>
+                            </td>
+
+                            <td>
+                                <div class="actions">
+                                    <button title="Editar">✏️</button>
+                                    <button title="Eliminar">🗑️</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>4</td>
+                            <td>Antoine de</td>
+                            <td>Saint-Exupéry</td>
+                            <td>Francesa</td>
+                            <td>29/06/1900</td>
+
+                            <td>
+                                <span class="status inactive-status">
+                                    Inactivo
+                                </span>
+                            </td>
+
+                            <td>
+                                <div class="actions">
+                                    <button title="Editar">✏️</button>
+                                    <button title="Eliminar">🗑️</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>5</td>
+                            <td>Homero</td>
+                            <td>-</td>
+                            <td>Griega</td>
+                            <td>-</td>
+
+                            <td>
+                                <span class="status active-status">
+                                    Activo
+                                </span>
+                            </td>
+
+                            <td>
+                                <div class="actions">
+                                    <button title="Editar">✏️</button>
+                                    <button title="Eliminar">🗑️</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div class="table-footer">
+
+                <span>
+                    Mostrando 1 a 5 de 12 autores
+                </span>
+
+                <div class="pagination">
+                    <button>‹‹</button>
+                    <button class="current">1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button>››</button>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>

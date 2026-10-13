@@ -1,0 +1,152 @@
+<div class="prestamo-page">
+
+    <!-- Barra superior -->
+    <header class="topbar">
+
+        <div class="brand">
+            <div class="brand-icon">📚</div>
+            <span>Sistema de Gestión de Libros</span>
+        </div>
+
+        <nav class="top-menu">
+            <a href="/dashboard">Dashboard</a>
+            <a href="/libros">Libros</a>
+            <a href="/categorias">Categorías</a>
+            <a href="/autores">Autores</a>
+            <a href="/editoriales">Editoriales</a>
+            <a class="active" href="/prestamos/nuevo">Préstamos</a>
+        </nav>
+
+        <div class="user-menu">
+            <span>👤</span>
+            <span>Administrador</span>
+            <span>⌄</span>
+        </div>
+
+    </header>
+
+    <!-- Contenido -->
+    <main class="page-content">
+
+        <a href="/prestamos" class="back-button">
+            ← Volver
+        </a>
+
+        <section class="page-header">
+
+            <div>
+                <h1>Registrar Préstamo</h1>
+
+                <p>
+                    Registra un nuevo préstamo de libro a un lector.
+                </p>
+            </div>
+
+        </section>
+
+        <section class="loan-card">
+
+            <form>
+
+                <!-- USUARIO -->
+                <div class="field">
+
+                    <label for="usuario">
+                        Usuario *
+                    </label>
+
+                    <input id="usuario" type="text" placeholder="Buscar usuario por nombre o correo..." />
+
+                </div>
+
+                <!-- LIBRO -->
+                <div class="field">
+
+                    <label for="libro">
+                        Libro *
+                    </label>
+
+                    <input id="libro" type="text" placeholder="Buscar libro por título o ISBN..." />
+
+                </div>
+
+                <!-- FECHAS -->
+                <div class="date-grid">
+
+                    <div class="field">
+
+                        <label for="fechaPrestamo">
+                            Fecha del préstamo *
+                        </label>
+
+                        <input id="fechaPrestamo" type="date" />
+
+                    </div>
+
+                    <div class="field">
+
+                        <label for="fechaDevolucion">
+                            Fecha de devolución *
+                        </label>
+
+                        <input id="fechaDevolucion" type="date" />
+
+                    </div>
+
+                </div>
+
+                <!-- INFORMACIÓN -->
+                <div class="info-panel">
+
+                    <h2>Información del préstamo</h2>
+
+                    <div class="info-grid">
+
+                        <div>
+                            <span>Usuario</span>
+                            <strong>No seleccionado</strong>
+                        </div>
+
+                        <div>
+                            <span>Libro</span>
+                            <strong>No seleccionado</strong>
+                        </div>
+
+                        <div>
+                            <span>Estado</span>
+                            <strong class="loan-status">
+                                Prestado
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>Disponibilidad</span>
+                            <strong>
+                                Seleccione un libro
+                            </strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- BOTONES -->
+                <div class="form-actions">
+
+                    <a href="/prestamos" class="cancel-button">
+                        Cancelar
+                    </a>
+
+                    <button type="submit" class="save-button">
+                        💾 Registrar préstamo
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+</div>

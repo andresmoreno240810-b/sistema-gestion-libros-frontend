@@ -1,0 +1,159 @@
+<div class="form-page">
+
+    <!-- Barra superior -->
+    <header class="topbar">
+
+        <div class="brand">
+            <div class="brand-icon">📚</div>
+            <span>Sistema de Gestión de Libros</span>
+        </div>
+
+        <nav class="top-menu">
+            <a href="/dashboard">Dashboard</a>
+            <a class="active" href="/libros">Libros</a>
+            <a href="/categorias">Categorías</a>
+            <a href="/autores">Autores</a>
+            <a href="/editoriales">Editoriales</a>
+            <a href="/prestamos">Préstamos</a>
+        </nav>
+
+        <div class="user-menu">
+            <span>👤</span>
+            <span>Administrador</span>
+            <span>⌄</span>
+        </div>
+
+    </header>
+
+    <!-- Contenido -->
+    <main class="form-content">
+
+        <a href="/libros" class="back-button">
+            ← Volver
+        </a>
+
+        <section class="form-header">
+            <h1>Registro de Libro</h1>
+
+            <p>
+                Completa la información del libro para registrarlo en el sistema.
+            </p>
+        </section>
+
+        <section class="form-card">
+
+            <form>
+
+                <div class="form-grid">
+
+                    <!-- COLUMNA IZQUIERDA -->
+                    <div>
+
+                        <div class="field">
+                            <label for="titulo">Título *</label>
+
+                            <input id="titulo" type="text" placeholder="Ingrese el título del libro" />
+                        </div>
+
+                        <div class="field">
+                            <label for="isbn">ISBN *</label>
+
+                            <input id="isbn" type="text" placeholder="Ingrese el ISBN del libro" />
+                        </div>
+
+                        <div class="field">
+                            <label for="anio">Año de publicación *</label>
+
+                            <input id="anio" type="number" placeholder="Ingrese el año de publicación" />
+                        </div>
+
+                        <div class="field">
+                            <label for="cantidad">Cantidad total *</label>
+
+                            <input id="cantidad" type="number" min="1"
+                                placeholder="Ingrese la cantidad total de ejemplares" />
+                        </div>
+
+                        <div class="field">
+                            <label for="disponibles">Disponibles *</label>
+
+                            <input id="disponibles" type="number" min="0"
+                                placeholder="Ingrese la cantidad disponible" />
+                        </div>
+
+                    </div>
+
+                    <!-- COLUMNA DERECHA -->
+                    <div>
+
+                        <div class="cover-section">
+
+                            <label>Portada del libro</label>
+
+                            <div class="cover-area">
+                                📖
+                            </div>
+
+                            <button type="button" class="image-button">
+                                🖼️ Seleccionar imagen
+                            </button>
+
+                            <small>
+                                Formatos: JPG, PNG<br />
+                                Tamaño máximo: 2 MB
+                            </small>
+
+                        </div>
+
+                        <div class="field">
+                            <label for="categoria">Categoría *</label>
+
+                            <input id="categoria" type="text" placeholder="Ingrese la categoría" />
+                        </div>
+
+                        <div class="field">
+                            <label for="autor">Autor *</label>
+
+                            <input id="autor" type="text" placeholder="Ingrese el autor" />
+                        </div>
+
+                        <div class="field">
+                            <label for="editorial">Editorial *</label>
+
+                            <input id="editorial" type="text" placeholder="Ingrese la editorial" />
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- DESCRIPCIÓN -->
+                <div class="field description-field">
+
+                    <label for="descripcion">Descripción</label>
+
+                    <textarea id="descripcion" rows="5"
+                        placeholder="Ingrese una breve descripción del libro..."></textarea>
+
+                </div>
+
+                <!-- BOTONES -->
+                <div class="form-actions">
+
+                    <a href="/libros" class="cancel-button">
+                        Cancelar
+                    </a>
+
+                    <button type="submit" class="save-button">
+                        💾 Guardar libro
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+</div>

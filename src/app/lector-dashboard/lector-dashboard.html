@@ -1,0 +1,212 @@
+<div class="lector-page">
+
+    <!-- Barra superior -->
+    <header class="topbar">
+
+        <div class="brand">
+            <div class="brand-icon">📚</div>
+            <span>Sistema de Gestión de Libros</span>
+        </div>
+
+        <nav class="top-menu">
+            <a class="active" href="/lector/dashboard">Dashboard</a>
+            <a href="/lector/libros">Mis libros</a>
+            <a href="/lector/prestamos">Mis préstamos</a>
+        </nav>
+
+        <div class="user-menu">
+            <span>👤</span>
+            <span>Lector</span>
+            <span>⌄</span>
+        </div>
+
+    </header>
+
+    <!-- Contenido -->
+    <main class="dashboard-content">
+
+        <!-- Bienvenida -->
+        <section class="welcome-card">
+
+            <div>
+                <p class="welcome-label">PANEL DE LECTOR</p>
+
+                <h1>Bienvenido al Sistema de Gestión de Libros</h1>
+
+                <p class="welcome-text">
+                    Consulta la información disponible de la biblioteca desde este panel.
+                </p>
+            </div>
+
+            <div class="welcome-icon">
+                📚
+            </div>
+
+        </section>
+
+        <!-- Resumen -->
+        <section class="stats-grid">
+
+            <div class="stat-card books">
+                <div>
+                    <p>Libros disponibles</p>
+                    <strong>0</strong>
+                    <span>Disponibles para consulta</span>
+                </div>
+
+                <div class="stat-icon">📚</div>
+            </div>
+
+            <div class="stat-card loans">
+                <div>
+                    <p>Mis préstamos</p>
+                    <strong>0</strong>
+                    <span>Préstamos actuales</span>
+                </div>
+
+                <div class="stat-icon">📖</div>
+            </div>
+
+            <div class="stat-card overdue">
+                <div>
+                    <p>Préstamos vencidos</p>
+                    <strong>0</strong>
+                    <span>Requieren devolución</span>
+                </div>
+
+                <div class="stat-icon">⏰</div>
+            </div>
+
+            <div class="stat-card total">
+                <div>
+                    <p>Préstamos totales</p>
+                    <strong>0</strong>
+                    <span>Historial de préstamos</span>
+                </div>
+
+                <div class="stat-icon">✅</div>
+            </div>
+
+        </section>
+
+        <!-- Libros recientes -->
+        <section class="content-card">
+
+            <div class="section-header">
+                <div>
+                    <h2>Libros disponibles</h2>
+                    <p>Consulta algunos de los libros disponibles en la biblioteca.</p>
+                </div>
+
+                <a href="/lector/libros" class="section-button">
+                    Ver todos
+                </a>
+            </div>
+
+            <div class="books-grid">
+
+                <article class="book-card">
+                    <div class="book-cover">📖</div>
+
+                    <h3>Cien años de soledad</h3>
+                    <p>Gabriel García Márquez</p>
+
+                    <span>Disponible</span>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-cover">📖</div>
+
+                    <h3>El principito</h3>
+                    <p>Antoine de Saint-Exupéry</p>
+
+                    <span>Disponible</span>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-cover">📖</div>
+
+                    <h3>Don Quijote de la Mancha</h3>
+                    <p>Miguel de Cervantes</p>
+
+                    <span>Disponible</span>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-cover">📖</div>
+
+                    <h3>Harry Potter</h3>
+                    <p>J. K. Rowling</p>
+
+                    <span>Disponible</span>
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- Mis préstamos -->
+        <section class="content-card">
+
+            <div class="section-header">
+                <div>
+                    <h2>Mis préstamos actuales</h2>
+                    <p>Consulta el estado de tus préstamos.</p>
+                </div>
+
+                <a href="/lector/prestamos" class="section-button">
+                    Ver todos
+                </a>
+            </div>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Libro</th>
+                            <th>Fecha préstamo</th>
+                            <th>Fecha límite</th>
+                            <th>Estado</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Cien años de soledad</td>
+                            <td>25/09/2026</td>
+                            <td>09/10/2026</td>
+                            <td>
+                                <span class="status active-status">En curso</span>
+                            </td>
+                            <td>
+                                <button>Ver</button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>El principito</td>
+                            <td>20/09/2026</td>
+                            <td>04/10/2026</td>
+                            <td>
+                                <span class="status overdue-status">Vencido</span>
+                            </td>
+                            <td>
+                                <button>Ver</button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>

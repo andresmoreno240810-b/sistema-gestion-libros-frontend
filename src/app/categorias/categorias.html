@@ -1,0 +1,249 @@
+<div class="categorias-page">
+
+    <!-- Barra superior -->
+    <header class="topbar">
+
+        <div class="brand">
+            <div class="brand-icon">📚</div>
+            <span>Sistema de Gestión de Libros</span>
+        </div>
+
+        <nav class="top-menu">
+            <a href="/dashboard">Dashboard</a>
+            <a href="/libros">Libros</a>
+            <a class="active" href="/categorias">Categorías</a>
+            <a href="/autores">Autores</a>
+            <a href="/editoriales">Editoriales</a>
+            <a href="/prestamos">Préstamos</a>
+        </nav>
+
+        <div class="user-menu">
+            <span>👤</span>
+            <span>Administrador</span>
+            <span>⌄</span>
+        </div>
+
+    </header>
+
+    <!-- Contenido -->
+    <main class="page-content">
+
+        <section class="page-header">
+
+            <div>
+                <h1>Gestión de Categorías</h1>
+
+                <p>
+                    Registra, consulta, edita o elimina las categorías del sistema.
+                </p>
+            </div>
+
+            <a href="#" class="new-button">
+                + Nueva categoría
+            </a>
+
+        </section>
+
+        <!-- Filtros -->
+        <section class="filters">
+
+            <div class="search-box">
+                <span>🔍</span>
+
+                <input type="text" placeholder="Buscar por nombre o descripción..." />
+            </div>
+
+            <div class="filter-group">
+
+                <label>Estado</label>
+
+                <select>
+                    <option>Todos</option>
+                    <option>Activo</option>
+                    <option>Inactivo</option>
+                </select>
+
+            </div>
+
+            <button class="search-button">
+                Buscar
+            </button>
+
+            <button class="clear-button">
+                Limpiar
+            </button>
+
+        </section>
+
+        <!-- Tabla -->
+        <section class="table-card">
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>1</td>
+
+                            <td>Novela</td>
+
+                            <td>
+                                Obras de ficción narrativa.
+                            </td>
+
+                            <td>
+                                <span class="status active-status">
+                                    Activo
+                                </span>
+                            </td>
+
+                            <td>
+                                <div class="actions">
+                                    <button title="Editar">✏️</button>
+                                    <button title="Eliminar">🗑️</button>
+                                </div>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>2</td>
+
+                            <td>Infantil</td>
+
+                            <td>
+                                Libros para niños y adolescentes.
+                            </td>
+
+                            <td>
+                                <span class="status active-status">
+                                    Activo
+                                </span>
+                            </td>
+
+                            <td>
+                                <div class="actions">
+                                    <button title="Editar">✏️</button>
+                                    <button title="Eliminar">🗑️</button>
+                                </div>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>3</td>
+
+                            <td>Clásicos</td>
+
+                            <td>
+                                Obras clásicas de la literatura.
+                            </td>
+
+                            <td>
+                                <span class="status active-status">
+                                    Activo
+                                </span>
+                            </td>
+
+                            <td>
+                                <div class="actions">
+                                    <button title="Editar">✏️</button>
+                                    <button title="Eliminar">🗑️</button>
+                                </div>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>4</td>
+
+                            <td>Fantasía</td>
+
+                            <td>
+                                Libros de fantasía y aventuras.
+                            </td>
+
+                            <td>
+                                <span class="status active-status">
+                                    Activo
+                                </span>
+                            </td>
+
+                            <td>
+                                <div class="actions">
+                                    <button title="Editar">✏️</button>
+                                    <button title="Eliminar">🗑️</button>
+                                </div>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>5</td>
+
+                            <td>Ciencia</td>
+
+                            <td>
+                                Libros relacionados con ciencia y tecnología.
+                            </td>
+
+                            <td>
+                                <span class="status inactive-status">
+                                    Inactivo
+                                </span>
+                            </td>
+
+                            <td>
+                                <div class="actions">
+                                    <button title="Editar">✏️</button>
+                                    <button title="Eliminar">🗑️</button>
+                                </div>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <!-- Pie de tabla -->
+            <div class="table-footer">
+
+                <span>
+                    Mostrando 1 a 5 de 10 categorías
+                </span>
+
+                <div class="pagination">
+                    <button>‹‹</button>
+                    <button class="current">1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button>››</button>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
