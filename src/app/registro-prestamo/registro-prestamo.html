@@ -1,10 +1,7 @@
 <div class="prestamo-page">
 
-    <!-- Barra superior -->
     <header class="topbar">
-
         <div class="brand">
-            <div class="brand-icon">📚</div>
             <span>Sistema de Gestión de Libros</span>
         </div>
 
@@ -14,139 +11,240 @@
             <a href="/categorias">Categorías</a>
             <a href="/autores">Autores</a>
             <a href="/editoriales">Editoriales</a>
-            <a class="active" href="/prestamos/nuevo">Préstamos</a>
+            <a class="active" href="/prestamos">Préstamos</a>
         </nav>
 
         <div class="user-menu">
-            <span>👤</span>
             <span>Administrador</span>
-            <span>⌄</span>
         </div>
-
     </header>
 
-    <!-- Contenido -->
     <main class="page-content">
 
         <a href="/prestamos" class="back-button">
-            ← Volver
+            Volver a préstamos
         </a>
 
         <section class="page-header">
+            <h1>Registrar préstamo</h1>
+            <p>Selecciona un lector y los libros que deseas incluir en el préstamo.</p>
+        </section>
 
-            <div>
-                <h1>Registrar Préstamo</h1>
+        @if (cargandoOpciones) {
+            <p class="feedback loading-message">
+                Cargando lectores y libros disponibles...
+            </p>
+        }
 
-                <p>
-                    Registra un nuevo préstamo de libro a un lector.
-                </p>
+        @if (errorMessage) {
+            <p class="feedback error-message" role="alert">
+                {{ errorMessage }}
+            </p>
+        }
+
+        @if (successMessage) {
+            <p class="feedback success-message" role="status">
+                {{ successMessage }}
+            </p>
+        }
+
+        <form class="loan-card" (ngSubmit)="registrarPrestamo()">
+
+            <div class="field">
+                <label for="usuario">Lector *</label>
+
+                <select
+                    id="usuario"
+                    name="usuarioId"
+                    [(ngModel)]="usuarioId"
+                    required
+                    [disabled]="cargandoOpciones || guardando"
+                >
+                    <option [ngValue]="null">Selecciona un lector</option>
+
+                    @for (lector of lectores; track lector.id) {
+                        <option [ngValue]="lector.id">
+                            {{ lector.name }} — {{ lector.email }}
+                        </option>
+                    }
+                </select>
+
+                @if (!cargandoOpciones && lectores.length === 0) {
+                    <small>No hay lectores disponibles para seleccionar.</small>
+                }
             </div>
 
-        </section>
-
-        <section class="loan-card">
-
-            <form>
-
-                <!-- USUARIO -->
-                <div class="field">
-
-                    <label for="usuario">
-                        Usuario *
-                    </label>
-
-                    <input id="usuario" type="text" placeholder="Buscar usuario por nombre o correo..." />
-
-                </div>
-
-                <!-- LIBRO -->
-                <div class="field">
-
-                    <label for="libro">
-                        Libro *
-                    </label>
-
-                    <input id="libro" type="text" placeholder="Buscar libro por título o ISBN..." />
-
-                </div>
-
-                <!-- FECHAS -->
-                <div class="date-grid">
-
-                    <div class="field">
-
-                        <label for="fechaPrestamo">
-                            Fecha del préstamo *
-                        </label>
-
-                        <input id="fechaPrestamo" type="date" />
-
+            <section class="books-section">
+                <div class="section-heading">
+                    <div>
+                        <h2>Libros del préstamo</h2>
+                        <p>Añade uno o varios libros e indica las cantidades.</p>
                     </div>
 
-                    <div class="field">
-
-                        <label for="fechaDevolucion">
-                            Fecha de devolución *
-                        </label>
-
-                        <input id="fechaDevolucion" type="date" />
-
-                    </div>
-
-                </div>
-
-                <!-- INFORMACIÓN -->
-                <div class="info-panel">
-
-                    <h2>Información del préstamo</h2>
-
-                    <div class="info-grid">
-
-                        <div>
-                            <span>Usuario</span>
-                            <strong>No seleccionado</strong>
-                        </div>
-
-                        <div>
-                            <span>Libro</span>
-                            <strong>No seleccionado</strong>
-                        </div>
-
-                        <div>
-                            <span>Estado</span>
-                            <strong class="loan-status">
-                                Prestado
-                            </strong>
-                        </div>
-
-                        <div>
-                            <span>Disponibilidad</span>
-                            <strong>
-                                Seleccione un libro
-                            </strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!-- BOTONES -->
-                <div class="form-actions">
-
-                    <a href="/prestamos" class="cancel-button">
-                        Cancelar
-                    </a>
-
-                    <button type="submit" class="save-button">
-                        💾 Registrar préstamo
+                    <button
+                        type="button"
+                        class="add-book-button"
+                        (click)="agregarLibro()"
+                        [disabled]="
+                            cargandoOpciones ||
+                            guardando ||
+                            librosSeleccionados.length >= librosDisponibles.length
+                        "
+                    >
+                        + Agregar libro
                     </button>
-
                 </div>
 
-            </form>
+                @for (item of librosSeleccionados; track $index; let i = $index) {
+                    <div class="book-row">
 
-        </section>
+                        <div class="field book-field">
+                            <label [for]="'libro-' + i">
+                                Libro {{ i + 1 }} *
+                            </label>
+
+                            <select
+                                [id]="'libro-' + i"
+                                [name]="'libroId-' + i"
+                                [ngModel]="item.libro_id"
+                                (ngModelChange)="
+                                    item.libro_id = $event;
+                                    alCambiarLibro(i)
+                                "
+                                required
+                                [disabled]="cargandoOpciones || guardando"
+                            >
+                                <option [ngValue]="null">Selecciona un libro</option>
+
+                                @for (libro of librosParaSeleccion(i); track libro.id) {
+                                    <option [ngValue]="libro.id">
+                                        {{ libro.titulo }} — ISBN {{ libro.isbn }}
+                                        ({{ libro.disponibles }} disponibles)
+                                    </option>
+                                }
+                            </select>
+
+                            @if (item.libro_id !== null) {
+                                <small>
+                                    Disponibles:
+                                    {{ obtenerDisponibles(item.libro_id) }}
+                                </small>
+                            }
+                        </div>
+
+                        <div class="field quantity-field">
+                            <label [for]="'cantidad-' + i">
+                                Cantidad *
+                            </label>
+
+                            <input
+                                [id]="'cantidad-' + i"
+                                [name]="'cantidad-' + i"
+                                type="number"
+                                [(ngModel)]="item.cantidad"
+                                min="1"
+                                [max]="obtenerDisponibles(item.libro_id)"
+                                required
+                                [disabled]="cargandoOpciones || guardando"
+                            />
+                        </div>
+
+                        <button
+                            type="button"
+                            class="remove-book-button"
+                            (click)="quitarLibro(i)"
+                            [disabled]="guardando || librosSeleccionados.length === 1"
+                        >
+                            Quitar
+                        </button>
+
+                    </div>
+                }
+
+                @if (!cargandoOpciones && librosDisponibles.length === 0) {
+                    <p class="empty-message">
+                        No hay libros activos con ejemplares disponibles.
+                    </p>
+                }
+            </section>
+
+            <div class="date-grid">
+
+                <div class="field">
+                    <label for="fechaPrestamo">Fecha del préstamo *</label>
+
+                    <input
+                        id="fechaPrestamo"
+                        name="fechaPrestamo"
+                        type="date"
+                        [(ngModel)]="fechaPrestamo"
+                        required
+                        [disabled]="guardando"
+                    />
+                </div>
+
+                <div class="field">
+                    <label for="fechaDevolucion">Fecha de devolución *</label>
+
+                    <input
+                        id="fechaDevolucion"
+                        name="fechaDevolucion"
+                        type="date"
+                        [(ngModel)]="fechaDevolucion"
+                        [min]="fechaPrestamo"
+                        required
+                        [disabled]="guardando"
+                    />
+                </div>
+
+            </div>
+
+            <section class="info-panel">
+                <h2>Resumen del préstamo</h2>
+
+                <div class="info-grid">
+                    <div>
+                        <span>Lector seleccionado</span>
+                        <strong>
+                            {{ nombreLectorSeleccionado() }}
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Libros diferentes</span>
+                        <strong>{{ librosSeleccionados.length }}</strong>
+                    </div>
+
+                    <div>
+                        <span>Total de ejemplares</span>
+                        <strong>{{ totalEjemplares() }}</strong>
+                    </div>
+
+                    <div>
+                        <span>Estado inicial</span>
+                        <strong class="loan-status">Prestado</strong>
+                    </div>
+                </div>
+            </section>
+
+            <div class="form-actions">
+                <a
+                    href="/prestamos"
+                    class="cancel-button"
+                >
+                    Cancelar
+                </a>
+
+                <button
+                    type="submit"
+                    class="save-button"
+                    [disabled]="cargandoOpciones || guardando || librosDisponibles.length === 0"
+                >
+                    {{ guardando ? 'Registrando...' : 'Registrar préstamo' }}
+                </button>
+            </div>
+
+        </form>
 
     </main>
-
 </div>

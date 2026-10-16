@@ -278,3 +278,181 @@
     }
 
 }
+
+/* SELECTORES */
+
+.field select {
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 46px;
+    padding: 0 14px;
+    background: #334155;
+    border: 1px solid #475569;
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+    outline: none;
+}
+
+.field select:focus {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+.field select option {
+    background: #1e293b;
+    color: white;
+}
+
+.field small {
+    display: block;
+    margin-top: 7px;
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+/* SECCIÓN DE LIBROS */
+
+.books-section {
+    margin: 28px 0;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.section-heading h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.section-heading p {
+    margin: 7px 0 0;
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.book-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 120px auto;
+    align-items: end;
+    gap: 14px;
+    margin-bottom: 14px;
+    padding: 18px;
+    border: 1px solid #475569;
+    border-radius: 12px;
+    background: #263449;
+}
+
+.book-field,
+.quantity-field {
+    min-width: 0;
+    margin-bottom: 0;
+}
+
+.book-row .field input {
+    min-width: 0;
+}
+
+.add-book-button,
+.remove-book-button {
+    min-height: 42px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.add-book-button {
+    color: white;
+    background: #334155;
+    border: 1px solid #64748b;
+}
+
+.add-book-button:hover {
+    background: #475569;
+}
+
+.remove-book-button {
+    margin-bottom: 22px;
+    color: #fecaca;
+    background: #450a0a;
+    border: 1px solid #7f1d1d;
+}
+
+.remove-book-button:hover {
+    background: #7f1d1d;
+}
+
+.add-book-button:disabled,
+.remove-book-button:disabled,
+.save-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.empty-message {
+    padding: 18px;
+    color: #cbd5e1;
+    background: #334155;
+    border-radius: 8px;
+}
+
+/* MENSAJES */
+
+.feedback {
+    padding: 14px 16px;
+    margin: 0 0 18px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.loading-message {
+    color: #bfdbfe;
+    background: #1e3a8a;
+}
+
+.error-message {
+    color: #fecaca;
+    background: #450a0a;
+    border: 1px solid #7f1d1d;
+}
+
+.success-message {
+    color: #bbf7d0;
+    background: #14532d;
+    border: 1px solid #166534;
+}
+
+/* ACCESIBILIDAD Y RESPONSIVE */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 2px solid #818cf8;
+    outline-offset: 3px;
+}
+
+@media (max-width: 700px) {
+    .section-heading {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .book-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .remove-book-button {
+        margin-bottom: 0;
+        justify-self: start;
+    }
+}
